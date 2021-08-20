@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Page</title>
     <style>
+        body {
+            background-color: #ccc;
+        }
+        img {
+            width: 200px;
+            margin: 10px
+        }
         * {
             margin: 0px;
             padding: 0px;
@@ -54,10 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $subject = sterilize($_POST["subject"]);
 
     if(count($errors) === 0) {
-        echo "Message sent!";
+        echo "<span class='bold'>Message sent!</span>";
         $to = "aribakande@gmail.com";
         $message = "From: $name($email) <br> Message: $message";
-        $headers = "From: arib1052001@gmail.com";
+        $headers = "From: $email";
         mail($to,$subject,$txt,$headers);
     }
 }
@@ -66,6 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <h1>My Resume Page</h1>
+    <div>
+        <img src="zuri.jpeg" alt="">
+        <p>
+            <a href="https://zuri.team/" class="bold">Zuri Team</a>
+        </p>
+    </div>
     <div>
         <img src="pic.jpg" alt="ARIB picture" width="200px">
         <h2>Abdulrasheed Ibraheem</h2>
